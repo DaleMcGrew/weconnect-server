@@ -44,18 +44,26 @@ model TaskChangeLog {
 /// The description of one task is a TaskDefinition. The status of one person for a particular TaskDefinition, is a Task.
 model TaskDefinition {
   id                          Int      @id @default(autoincrement())
+  emailTemplateId             Int? /// Which email template to use in completing this step
   /// Needed for Google Drive API
   googleDriveFolderId         String?
+  /// The default is that tasks are for HR staff. If a task is for a volunteer to complete, 'isForVolunteer' is true.
+  isForVolunteer              Boolean  @default(false)
   isGoogleDrivePermissionStep Boolean?
+  /// If completing this step includes answering a questionnaire, set 'isQuestionnaireStep' to true.
+  isQuestionnaireStep         Boolean?
   /// What step is this in the series
   order                       Int      @default(0)
+  /// Questionnaire to refer to in the instructions
+  questionnaireId             Int      @default(-1)
   /// Id of the TaskGroup this task is a part of
   taskGroupId                 Int
   /// Where HR team goes to do this task. The link could be a Google drive folder.
   taskActionUrl               String?
-  taskName                    String
-  taskDescription             String?
-  taskInstructions            String?
+  taskName                    String /// task name to show before it is done
+  taskNameCompleted           String? /// task name to show after done
+  taskWhatToDo                String?
+  taskWhyWeDoIt               String?
 }
 
 /// How is one TaskDefinition related to (or dependent on) prior TaskDefinitions?

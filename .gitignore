@@ -10,6 +10,11 @@ lib-cov
 .env
 .env-template
 
+cert
+cert/wevotedeveloper.com.crt
+cert/wevotedeveloper.com_key.txt
+cert.pem
+key.pem
 pids
 logs
 results

@@ -23,31 +23,39 @@ const PERSON_AWAY_FIELDS_ACCEPTED = {
   isWorkTrip: 'BOOLEAN',
 };
 
-const PERSON_FIELDS_ACCEPTED = [
-  'firstName',
-  'firstNamePreferred',
-  'emailPersonal',
-  'hoursPerWeekEstimate',
-  'jobTitle',
-  'lastName',
-  'location',
-  'password',
-  'stateCode',
-  'zipCode',
-];
-const PERSON_FIELDS_ACCEPTED_ADMIN = PERSON_FIELDS_ACCEPTED.concat([
-  'isAdmin',
-  'isHRAdmin',
-  'isHROfferAdmin',
-  'isHRGeneralist1',
-  'isHRGeneralist2',
-  'isHiringManager',
-  'isIntern',
-  'isTeamLead',
-  'statusActive',
-  'statusOnLeave',
-  'statusResigned',
-]);
+const PERSON_FIELDS_ACCEPTED = {
+  dateStarted: 'DATE',
+  firstName: 'STRING',
+  firstNamePreferred: 'STRING',
+  emailOfficial: 'STRING',
+  emailPersonal: 'STRING',
+  emailPreferred: 'STRING',
+  hoursPerWeekEstimate: 'INTEGER',
+  jazzHrUrl: 'STRING',
+  jobTitle: 'STRING',
+  lastName: 'STRING',
+  linkedInUrl: 'STRING',
+  location: 'STRING',
+  password: 'STRING',
+  stateCode: 'STRING',
+  zipCode: 'STRING',
+};
+const PERSON_FIELDS_ACCEPTED_ADMIN = {
+  ...PERSON_FIELDS_ACCEPTED,
+  ...{
+    isAdmin: 'BOOLEAN',
+    isHRAdmin: 'BOOLEAN',
+    isHROfferAdmin: 'BOOLEAN',
+    isHRGeneralist1: 'BOOLEAN',
+    isHRGeneralist2: 'BOOLEAN',
+    isHiringManager: 'BOOLEAN',
+    isIntern: 'BOOLEAN',
+    isTeamLead: 'BOOLEAN',
+    statusActive: 'BOOLEAN',
+    statusOnLeave: 'BOOLEAN',
+    statusResigned: 'BOOLEAN',
+  },
+};
 
 const ACCESS_RIGHTS_OPTIONS = [
   'canAddPerson', 'canAddPersonDataAnyone', 'canAddTeam',

@@ -4,16 +4,21 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-const TASK_DEFINITION_FIELDS_ACCEPTED = [
-  'googleDriveFolderId',
-  'isGoogleDrivePermissionStep',
-  'order',
-  'taskGroupId',
-  'taskActionUrl',
-  'taskName',
-  'taskDescription',
-  'taskInstructions',
-];
+const TASK_DEFINITION_FIELDS_ACCEPTED = {
+  emailTemplateId: 'INTEGER',
+  googleDriveFolderId: 'STRING',
+  isForVolunteer: 'BOOLEAN',
+  isGoogleDrivePermissionStep: 'BOOLEAN',
+  isQuestionnaireStep: 'BOOLEAN',
+  order: 'INTEGER',
+  questionnaireId: 'INTEGER',
+  taskGroupId: 'INTEGER',
+  taskActionUrl: 'STRING',
+  taskName: 'STRING',
+  taskNameCompleted: 'STRING',
+  taskWhatToDo: 'STRING',
+  taskWhyWeDoIt: 'STRING',
+};
 
 const TASK_FIELDS_ACCEPTED = [
   'doneByPersonId',
