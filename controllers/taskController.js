@@ -296,6 +296,7 @@ exports.generateTasksForPerson = async (
                 personId: person.id,
                 taskDefinitionId: taskDefinition.id,
                 taskGroupId: taskDefinition.taskGroupId,
+                taskType: taskDefinition.taskType,
               };
               // console.log('==== Creating new task for person:', person.firstName, person.lastName, ':', taskChangeDict);
               // Set a flag to indicate that a new task has been created, so we don't try to create again

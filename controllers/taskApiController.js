@@ -612,6 +612,7 @@ exports.taskSave = async (request, response) => {
   const personId = convertToInteger(queryParams.get('personId'));
   const taskDefinitionId = convertToInteger(queryParams.get('taskDefinitionId'));
   const taskGroupId = convertToInteger(queryParams.get('taskGroupId'));
+  // We aren't bringing in taskType as a URL variable at this time. We might need to in future?
   const taskChangeDict = extractVariablesToChangeFromIncomingParams(queryParams, TASK_FIELDS_ACCEPTED_DICT);
   // console.log('== AFTER extractVariablesToChangeFromIncomingParams taskChangeDict:', taskChangeDict);
   // Set up the default JSON response.
@@ -621,6 +622,7 @@ exports.taskSave = async (request, response) => {
     taskDefinitionId: -1,
     taskGroupId: -1,
     taskUpdated: false,
+    taskType: '',
     status: '',
     success: true,
     updateErrors: [],
@@ -667,6 +669,7 @@ exports.taskSave = async (request, response) => {
       jsonData.taskPersonId = task.personId;
       jsonData.taskDefinitionId = task.taskDefinitionId;
       jsonData.taskGroupId = task.taskGroupId;
+      jsonData.taskType = task.taskType;
       jsonData.status += 'TASK_UPDATED_OR_CREATED ';
       const modifiedTaskDict = removeProtectedFieldsFromTask(task);
       const taskKeys = Object.keys(modifiedTaskDict);
